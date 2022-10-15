@@ -7,4 +7,4 @@ def application(environ, start_response):
     print(query)
     body = "\n".join(query.strip('?').split("&"))
     start_response(status, headers)
-    return body.encode('utf-8')
+    return [body.encode('ascii')]

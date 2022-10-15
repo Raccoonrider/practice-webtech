@@ -3,7 +3,8 @@ def application(environ, start_response):
     headers = [
         ('Content-type', 'text/plain')
     ]
-    print(environ['QUERY_STRING'])
-    body = ""
+    query = environ['QUERY_STRING']
+    print(query)
+    body = "\n".join(x for x in query.strip('?').split("&"))
     start_response(status, headers)
     return [body]

@@ -5,6 +5,6 @@ def application(environ, start_response):
     ]
     query = environ['QUERY_STRING']
     print(query)
-    body = "\n".join(x for x in query.strip('?').split("&"))
+    body = "\n".join(query.strip('?').split("&"))
     start_response(status, headers)
-    return [body]
+    return body.encode('utf-8')
